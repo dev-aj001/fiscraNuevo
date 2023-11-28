@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jPanel2" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel2" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="botonVisita4" pref="291" max="32767" attributes="0"/>
+              <Component id="botonVisita5" max="32767" attributes="0"/>
+              <Component id="botonVisita6" max="32767" attributes="0"/>
+              <Component id="botonVisita7" max="32767" attributes="0"/>
+              <Component id="botonVisita8" max="32767" attributes="0"/>
+              <Component id="botonVisita9" max="32767" attributes="0"/>
+              <Component id="botonVisita10" max="32767" attributes="0"/>
+              <Component id="botonVisita3" alignment="0" max="32767" attributes="0"/>
+              <Component id="botonVisita11" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="botonVisita3" pref="43" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="botonVisita11" pref="43" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="botonVisita4" pref="43" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="botonVisita5" pref="43" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="botonVisita6" pref="37" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="botonVisita7" pref="36" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="botonVisita8" pref="40" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="botonVisita9" pref="40" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="botonVisita10" pref="42" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f3" green="f0" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblDia" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblDia" alignment="1" pref="46" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblDia">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="text" type="java.lang.String" value="jLabel1"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="custom.componentes.BotonVisita" name="botonVisita3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="10:00"/>
+            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="hora" type="java.lang.String" value="10:00"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[500, 27]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="custom.componentes.BotonVisita" name="botonVisita4">
+          <Properties>
+            <Property name="hora" type="java.lang.String" value="12:00"/>
+            <Property name="label" type="java.lang.String" value="12:00"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[500, 27]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="custom.componentes.BotonVisita" name="botonVisita5">
+          <Properties>
+            <Property name="hora" type="java.lang.String" value="13:00"/>
+            <Property name="label" type="java.lang.String" value="13:00"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[500, 27]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="custom.componentes.BotonVisita" name="botonVisita6">
+          <Properties>
+            <Property name="hora" type="java.lang.String" value="14:00"/>
+            <Property name="label" type="java.lang.String" value="14:00"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[500, 27]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="custom.componentes.BotonVisita" name="botonVisita7">
+          <Properties>
+            <Property name="hora" type="java.lang.String" value="15:00"/>
+            <Property name="label" type="java.lang.String" value="15:00"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[500, 27]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="custom.componentes.BotonVisita" name="botonVisita8">
+          <Properties>
+            <Property name="hora" type="java.lang.String" value="16:00"/>
+            <Property name="label" type="java.lang.String" value="16:00"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[500, 27]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="custom.componentes.BotonVisita" name="botonVisita9">
+          <Properties>
+            <Property name="hora" type="java.lang.String" value="17:00"/>
+            <Property name="label" type="java.lang.String" value="17:00"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[500, 27]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="custom.componentes.BotonVisita" name="botonVisita10">
+          <Properties>
+            <Property name="hora" type="java.lang.String" value="18:00"/>
+            <Property name="label" type="java.lang.String" value="18:00"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[500, 27]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="custom.componentes.BotonVisita" name="botonVisita11">
+          <Properties>
+            <Property name="hora" type="java.lang.String" value="11:00"/>
+            <Property name="label" type="java.lang.String" value="11:00"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[500, 27]"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
