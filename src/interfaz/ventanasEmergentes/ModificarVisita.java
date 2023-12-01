@@ -47,9 +47,22 @@ public class ModificarVisita extends javax.swing.JFrame {
         
         int hor = Integer.parseInt(visitaSeleccionada.getHora().split(":")[0])%10;
         cmbhora.setSelectedIndex(hor);
-        txtParentesco.setText(visitaSeleccionada.getParentesco());
+        
+        
+        
         
         Paciente p =  visitaSeleccionada.getPacienteidPaciente();
+        
+        //Mostrar parentesco
+        String parentesco = visitaSeleccionada.getParentesco();
+        
+        for (int i = 0; i < cmbParentesco.getItemCount(); i++) {
+            Object elemento = cmbParentesco.getItemAt(i);
+            if(parentesco.equals(elemento.toString())){
+                cmbParentesco.setSelectedIndex(i);
+                break;
+            }
+        }
         
         for (int i = 0;i>=listPacientes.size();i++) {
             if(listPacientes.get(i).equals(p)){
@@ -74,8 +87,8 @@ public class ModificarVisita extends javax.swing.JFrame {
         pnlVisitante = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         txtVisitante = new javax.swing.JTextField();
-        txtParentesco = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        cmbParentesco = new javax.swing.JComboBox<>();
         pnlHora = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         cmbhora = new javax.swing.JComboBox<>();
@@ -149,6 +162,8 @@ public class ModificarVisita extends javax.swing.JFrame {
 
         jLabel11.setText("Parentesco");
 
+        cmbParentesco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Sin especificar-", "Padre/Madre", "Esposo/a", "Hermano/a", "Hijo/a", "Nieto/a", "Sobrino/a", "Abuelo/a", "Tio/a", "Primo/a", "Cuñado/a", "Padrino/Madrina", "Amigo/a", "Compañero/a", "Acompañante", " " }));
+
         javax.swing.GroupLayout pnlVisitanteLayout = new javax.swing.GroupLayout(pnlVisitante);
         pnlVisitante.setLayout(pnlVisitanteLayout);
         pnlVisitanteLayout.setHorizontalGroup(
@@ -158,13 +173,10 @@ public class ModificarVisita extends javax.swing.JFrame {
                 .addGroup(pnlVisitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(pnlVisitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlVisitanteLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtVisitante, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlVisitanteLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txtParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtVisitante, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbParentesco, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlVisitanteLayout.setVerticalGroup(
@@ -177,7 +189,7 @@ public class ModificarVisita extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlVisitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(txtParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -324,7 +336,7 @@ public class ModificarVisita extends javax.swing.JFrame {
         //visita.setEstatus(0);
         visitaSeleccionada.setAsunto(txtAsunto.getText());
         visitaSeleccionada.setFamiliar(txtVisitante.getText());
-        visitaSeleccionada.setParentesco(txtParentesco.getText());
+        visitaSeleccionada.setParentesco(cmbParentesco.getSelectedItem().toString());
         
         visitaSeleccionada.setPacienteidPaciente(listPacientes.get(cmbidpaciente.getSelectedIndex()));
         /*
@@ -369,6 +381,7 @@ public class ModificarVisita extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnOK;
+    private javax.swing.JComboBox<String> cmbParentesco;
     private javax.swing.JComboBox<String> cmbhora;
     private javax.swing.JComboBox<String> cmbidpaciente;
     private com.toedter.calendar.JDateChooser date;
@@ -386,7 +399,6 @@ public class ModificarVisita extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPaciente1;
     private javax.swing.JPanel pnlVisitante;
     private javax.swing.JTextField txtAsunto;
-    private javax.swing.JTextField txtParentesco;
     private javax.swing.JTextField txtVisitante;
     // End of variables declaration//GEN-END:variables
 

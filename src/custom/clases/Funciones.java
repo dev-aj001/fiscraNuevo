@@ -68,6 +68,19 @@ public class Funciones {
         }
     }
     
+    public static String sexoToString(int sex){
+        switch (sex) {
+            case 0:
+                return "Sin especificar";
+            case 1:
+                return "Hombre";
+            case 2:
+                return "Mujer";
+            default:
+                throw new AssertionError();
+        }
+    }
+    
     public static String formatedFecha(Date fecha){
         SimpleDateFormat formato = new SimpleDateFormat("dd 'de' MMMM 'del' yyyy");
         return fecha!=null?formato.format(fecha):"";
@@ -78,6 +91,16 @@ public class Funciones {
         calendar.setTime(fecha);
         // Sumar un mes
         calendar.add(Calendar.MONTH, 1);
+        // Obtener la nueva fecha después de sumar un mes
+        Date nuevaFecha = calendar.getTime();
+        return nuevaFecha;
+    }
+    
+    public static Date fechaMenosMes(Date fecha){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        // Sumar un mes
+        calendar.add(Calendar.MONTH, -1);
         // Obtener la nueva fecha después de sumar un mes
         Date nuevaFecha = calendar.getTime();
         return nuevaFecha;

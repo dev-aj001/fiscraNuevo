@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import modelos.Actividad;
 import jpa.JPAController;
 import java.awt.Color;
+import java.util.Date;
 
 /**
  *
@@ -21,6 +22,7 @@ public class RegistrarActividad extends javax.swing.JFrame {
     public RegistrarActividad(PanelActividades clase) {
         initComponents();
         this.clase=clase;
+        date.setMinSelectableDate(new Date());
     }
     
     /**

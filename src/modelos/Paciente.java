@@ -270,7 +270,7 @@ public class Paciente implements Serializable {
     public Object[] toArray(){
         return new Object[] {getIdPaciente(), getNombre(), getApellidoPa() + " " + 
         getApellidoMa(), getCalle() + ", " + getColonia() + ", " + getMunicipio(), 
-        getCorreo(), getTelefono(), getSexo(), Funciones.formatedFecha(getFechaIngreso()) 
+        getCorreo(), getTelefono(), Funciones.sexoToString(getSexo()), Funciones.formatedFecha(getFechaIngreso()) 
         , Funciones.estatusPacienteToString(getEstatus())};
     }
 

@@ -23,6 +23,7 @@ public class RegistrarVisita extends javax.swing.JFrame {
         initComponents();
         this.clase=clase;
         consultaridPacientes();
+        date.setMinSelectableDate(new Date());
     }
 
      public void consultaridPacientes(){
@@ -55,7 +56,7 @@ public class RegistrarVisita extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtVisitante = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txtParentesco = new javax.swing.JTextField();
+        cmbParentesco = new javax.swing.JComboBox<>();
         pnlHora = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         cmbhora = new javax.swing.JComboBox<>();
@@ -129,6 +130,8 @@ public class RegistrarVisita extends javax.swing.JFrame {
 
         jLabel11.setText("Parentesco");
 
+        cmbParentesco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Sin especificar-", "Padre/Madre", "Esposo/a", "Hermano/a", "Hijo/a", "Nieto/a", "Sobrino/a", "Abuelo/a", "Tio/a", "Primo/a", "Cuñado/a", "Padrino/Madrina", "Amigo/a", "Compañero/a", "Acompañante", " " }));
+
         javax.swing.GroupLayout pnlVisitanteLayout = new javax.swing.GroupLayout(pnlVisitante);
         pnlVisitante.setLayout(pnlVisitanteLayout);
         pnlVisitanteLayout.setHorizontalGroup(
@@ -138,14 +141,12 @@ public class RegistrarVisita extends javax.swing.JFrame {
                 .addGroup(pnlVisitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(pnlVisitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlVisitanteLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(txtVisitante, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlVisitanteLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cmbParentesco, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlVisitanteLayout.setVerticalGroup(
@@ -158,7 +159,7 @@ public class RegistrarVisita extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlVisitanteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(txtParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbParentesco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -305,7 +306,7 @@ public class RegistrarVisita extends javax.swing.JFrame {
         visita.setEstatus(0);
         visita.setAsunto(txtAsunto.getText());
         visita.setFamiliar(txtVisitante.getText());
-        visita.setParentesco(txtParentesco.getText());
+        visita.setParentesco(cmbParentesco.getSelectedItem().toString());
         
         visita.setPacienteidPaciente(listPacientes.get(cmbidpaciente.getSelectedIndex()));
         /*
@@ -333,6 +334,17 @@ public class RegistrarVisita extends javax.swing.JFrame {
             txtAsunto.setText("Visita para " + cmbidpaciente.getSelectedItem().toString());
             Familiar f = new JPAController().getExpediente(listPacientes.get(cmbidpaciente.getSelectedIndex()).getIdPaciente()).getFamiliaridFamiliar();
             txtVisitante.setText(f.getNombre()+" "+f.getApellidoPa());
+        
+            //Mostrar parentesco
+            String parentesco = f.getParentesco();
+
+            for (int i = 0; i < cmbParentesco.getItemCount(); i++) {
+                Object elemento = cmbParentesco.getItemAt(i);
+                if(parentesco.equals(elemento.toString())){
+                    cmbParentesco.setSelectedIndex(i);
+                    break;
+                }
+            }
         } catch(NullPointerException e){
             
         }
@@ -350,6 +362,7 @@ public class RegistrarVisita extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnOK;
+    private javax.swing.JComboBox<String> cmbParentesco;
     private javax.swing.JComboBox<String> cmbhora;
     private javax.swing.JComboBox<String> cmbidpaciente;
     private com.toedter.calendar.JDateChooser date;
@@ -367,7 +380,6 @@ public class RegistrarVisita extends javax.swing.JFrame {
     private javax.swing.JPanel pnlPaciente1;
     private javax.swing.JPanel pnlVisitante;
     private javax.swing.JTextField txtAsunto;
-    private javax.swing.JTextField txtParentesco;
     private javax.swing.JTextField txtVisitante;
     // End of variables declaration//GEN-END:variables
 

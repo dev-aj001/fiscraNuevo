@@ -151,16 +151,13 @@
                           <Component id="jLabel11" max="32767" attributes="0"/>
                           <Component id="jLabel9" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Component id="txtVisitante" min="-2" pref="329" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="txtParentesco" min="-2" pref="329" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="cmbParentesco" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -177,7 +174,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtParentesco" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbParentesco" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -197,7 +194,32 @@
                 <Property name="text" type="java.lang.String" value="Parentesco"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtParentesco">
+            <Component class="javax.swing.JComboBox" name="cmbParentesco">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="16">
+                    <StringItem index="0" value="-Sin especificar-"/>
+                    <StringItem index="1" value="Padre/Madre"/>
+                    <StringItem index="2" value="Esposo/a"/>
+                    <StringItem index="3" value="Hermano/a"/>
+                    <StringItem index="4" value="Hijo/a"/>
+                    <StringItem index="5" value="Nieto/a"/>
+                    <StringItem index="6" value="Sobrino/a"/>
+                    <StringItem index="7" value="Abuelo/a"/>
+                    <StringItem index="8" value="Tio/a"/>
+                    <StringItem index="9" value="Primo/a"/>
+                    <StringItem index="10" value="Cu&#xf1;ado/a"/>
+                    <StringItem index="11" value="Padrino/Madrina"/>
+                    <StringItem index="12" value="Amigo/a"/>
+                    <StringItem index="13" value="Compa&#xf1;ero/a"/>
+                    <StringItem index="14" value="Acompa&#xf1;ante"/>
+                    <StringItem index="15" value=" "/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

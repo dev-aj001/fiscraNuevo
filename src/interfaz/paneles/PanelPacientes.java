@@ -32,6 +32,7 @@ import modelos.Familiar;
 import modelos.Finanza;
 import modelos.Paciente;
 import modelos.Pago;
+import reportes.ActaEgreso;
 import reportes.ActaIngreso;
 import reportes.Impresor;
 
@@ -352,12 +353,13 @@ public class PanelPacientes extends javax.swing.JPanel {
                     .addComponent(jLabel26)
                     .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jXLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtApellido2Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jXLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jXLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtApellido2Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -2016,10 +2018,12 @@ public class PanelPacientes extends javax.swing.JPanel {
         clearExpediente();
         setIdSeleccionado();
         // Modificar expediente
-        opSeleccionada = 1; //Modificar
-        mostrarPnlExpediente();
-        desbloquearEdicion();
-        llenarExpediente();
+        if(idSeleccionado!=0){
+            opSeleccionada = 1; //Modificar
+            mostrarPnlExpediente();
+            desbloquearEdicion();
+            llenarExpediente();
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
@@ -2028,7 +2032,8 @@ public class PanelPacientes extends javax.swing.JPanel {
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
         // Boton actualizar tabla
-        actualizarTabla();
+        String nombre = txtBuscar.getText();
+        actualizarTablaBusqueda(nombre);
     }//GEN-LAST:event_txtBuscarKeyTyped
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
@@ -2125,13 +2130,19 @@ public class PanelPacientes extends javax.swing.JPanel {
     private void btnExpedienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpedienteActionPerformed
         // TODO add your handling code here:
         setIdSeleccionado();
-        clearExpediente();
-        opSeleccionada = 2; //Solo imprimir
-        mostrarPnlExpediente();
-        //Llenar datos
-        llenarExpediente();
-        bloquearEdicion();
-        btnContinuar.setText("mostrar acta de egreso");
+        if(idSeleccionado!=0){
+            opSeleccionada = 2; //Solo imprimir
+            clearExpediente();
+            mostrarPnlExpediente();
+            //Llenar datos
+            llenarExpediente();
+            bloquearEdicion();
+            btnContinuar.setText("mostrar acta de egreso");
+            if(pacienteSeleccionado.getEstatus()==2){
+                btnContinuar.setEnabled(false);
+            }
+        }
+        
     }//GEN-LAST:event_btnExpedienteActionPerformed
 
     private void btnDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesactivarActionPerformed
@@ -2685,10 +2696,13 @@ public class PanelPacientes extends javax.swing.JPanel {
             jpa.insertExpediente(expediente);
             jpa.insertFinanza(finanza);
             
-            JOptionPane.showMessageDialog(this, "El paciente ha sido registrado exitosamete\nSe generará el acta de ingreso");
-            
-            mostrarImpresora(paciente);
+            if(estatus!=2){
+                JOptionPane.showMessageDialog(this, "El paciente ha sido registrado exitosamete\nSe generará el acta de ingreso");
+                mostrarImpresora(paciente);
+            }
+                
             mostrarPnlPacientes();
+            actualizarTabla();
             
         } catch (Exception ex) {
             Logger.getLogger(JPAController.class.getName()).log(Level.SEVERE, null, ex);
@@ -2837,6 +2851,8 @@ public class PanelPacientes extends javax.swing.JPanel {
                 JPAController jpa = new JPAController();
                 jpa.updatePaciente(pacienteSeleccionado);
                 actualizarTabla();
+                JOptionPane.showMessageDialog(this, "Se mostrará el acta de egreso del paciente dado de baja");
+                mostrarImpresoraEgreso(pacienteSeleccionado);
             }
         }else{
             JOptionPane.showMessageDialog(this, "Este usuario no puede ser dado de baja");
@@ -3249,6 +3265,21 @@ public class PanelPacientes extends javax.swing.JPanel {
         Impresor impresora = new Impresor(actaI); 
         impresora.setVisible(true);
     }
+    
+    private void mostrarImpresoraEgreso(Paciente paciente) {
+        ActaEgreso actaE = new ActaEgreso();
+        actaE.setFamiliar(txtFamiliarNombre.getText() + " " + txtFamiliarApellido1.getText() + " " + txtFamiliarApellido2.getText());
+        actaE.setPaciente(txtNombrePaciente.getText() + " " + txtApellido1Paciente.getText() + " " + txtApellido2Paciente.getText());
+        actaE.setFecha(Funciones.formatedFecha(paciente.getFechaIngreso()));
+        actaE.setRazon(txtRazoning.getText());
+        actaE.setGerente(userData.usuario.getNombre() + " " + userData.usuario.getApellidoPa());
+
+        actaE.llenar();
+
+        //Mostrar ventana impresora:
+        Impresor impresora = new Impresor(actaE); 
+        impresora.setVisible(true);
+    }
 
     private void initRadioButtons() {
         buttonGroup1.add(rbtnTipo0);
@@ -3261,6 +3292,32 @@ public class PanelPacientes extends javax.swing.JPanel {
         buttonGroup2.add(tbtn2);
         buttonGroup2.add(tbtn3);
         
+    }
+
+    private void actualizarTablaBusqueda(String nombre) {
+        
+        try {
+            JPAController jpa = new JPAController();
+
+            //Obtener la lista de usuarios activos e inactivos
+            
+            List<Paciente> pacientesBusqueda = jpa.getPacientesPorNombreCompleto(nombre);
+            
+
+            //Obtener el modelo de la tabla y limpiar las columnas
+            DefaultTableModel dtm = (DefaultTableModel)tabla.getModel();
+            dtm.setRowCount(0);
+
+            
+            for (Paciente paciente : pacientesBusqueda) {
+                    dtm.addRow(paciente.toArray());
+                }
+
+            //Asignar el modelo a la tabla
+            tabla.setModel(dtm);
+        } catch (Exception e) {
+            System.out.println("error: " + e.getMessage());
+        }
     }
      
 }

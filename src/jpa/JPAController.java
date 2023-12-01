@@ -354,5 +354,9 @@ public class JPAController {
     public List<Paciente> getPacientesActivos() {
         return pacienteJPA.findPacientesActivos();
     }
+    
+    public List<Paciente> getPacientesPorNombreCompleto(String nombre){
+        return pacienteJPA.buscarPacientesPorNombreCompleto(nombre);
+    }
 
 }

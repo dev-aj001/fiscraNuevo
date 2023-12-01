@@ -300,11 +300,16 @@ public class PanelFinanzas extends javax.swing.JPanel {
 
     public void actualizarTabla() {
         try {
+            
+            
+            
+            
             JPAController jpa = new JPAController();
 
             //Obtener la lista de pacientes activos
             List<Paciente> pacientesActivos = jpa.getPacientesActivos();
-
+            
+            
             //Obtener el modelo de la tabla y limpiar las columnas
             DefaultTableModel dtm = (DefaultTableModel)tabla.getModel();
             dtm.setRowCount(0);
@@ -313,6 +318,9 @@ public class PanelFinanzas extends javax.swing.JPanel {
                 Finanza finanza = jpa.getFinanza(paciente.getIdPaciente());
                 Pago pago = finanza.getPagoidPago();
                 
+                Date fechaActual = new Date();
+           
+               
                 Object[] datos = new Object[] {paciente.getIdPaciente(), paciente.getNombre() + " " + paciente.getApellidoPa(), 
                     Funciones.formatedFecha(paciente.getFechaIngreso()), Funciones.formatedFecha(pago.getFechaInicio()), 
                     pago.getDeuda(), pago.getCuota()};

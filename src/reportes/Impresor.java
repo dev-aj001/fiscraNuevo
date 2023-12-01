@@ -16,7 +16,8 @@ import javax.swing.JPanel;
  */
 public class Impresor extends javax.swing.JFrame {
 
-    private final ActaIngreso panel;
+    private  ActaIngreso panel;
+    private  ActaEgreso panelE;
 
     /**
      * Creates new form Impresor
@@ -25,6 +26,14 @@ public class Impresor extends javax.swing.JFrame {
         initComponents();
         this.panel = panel;
         jScrollPane1.setViewportView(this.panel);
+        revalidate();
+        repaint();
+    }
+    
+    public Impresor(ActaEgreso panelE) {
+        initComponents();
+        this.panelE = panelE;
+        jScrollPane1.setViewportView(this.panelE);
         revalidate();
         repaint();
     }

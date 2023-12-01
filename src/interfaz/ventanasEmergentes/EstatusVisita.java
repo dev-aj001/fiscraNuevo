@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import modelos.Actividad;
 import jpa.JPAController;
 import java.awt.Color;
+import java.util.Date;
 import modelos.Visita;
 
 /**
@@ -167,17 +168,22 @@ public class EstatusVisita extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Date d = new Date();
+        d.setHours(0);
         
-        
-        visita.setEstatus(cmbEstatus.getSelectedIndex());
-        
-        JPAController jpa = new JPAController();
-        
-        jpa.updateVisita(visita);
-        this.clase.actualizarTabla();
-        JOptionPane.showMessageDialog(this, "Se modifico el estatus exitosamente");
-        
-        this.dispose();
+        if(visita.getFecha().before(d) && (cmbEstatus.getSelectedIndex()==3 || cmbEstatus.getSelectedIndex()==4)){
+            JOptionPane.showMessageDialog(this, "La visita no se puede marcar como completada o\nimpleta hasta pasar el dia de la actividad");
+        }else{
+            visita.setEstatus(cmbEstatus.getSelectedIndex());
+
+            JPAController jpa = new JPAController();
+
+            jpa.updateVisita(visita);
+            this.clase.actualizarTabla();
+            JOptionPane.showMessageDialog(this, "Se modifico el estatus exitosamente");
+
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

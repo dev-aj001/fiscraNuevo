@@ -18,7 +18,7 @@ import java.util.Date;
  *
  * @author jairi
  */
-public class ActaIngreso extends javax.swing.JPanel implements Printable{
+public class ActaEgreso extends javax.swing.JPanel implements Printable{
 
     private String paciente = "";
     private String fecha = "";
@@ -27,7 +27,7 @@ public class ActaIngreso extends javax.swing.JPanel implements Printable{
     private String razon = "";
     
     
-    public ActaIngreso() {
+    public ActaEgreso() {
         initComponents();
     }
     
@@ -115,7 +115,7 @@ public class ActaIngreso extends javax.swing.JPanel implements Printable{
         jLabel9.setText("63038 Tepic, México");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
-        jLabel10.setText("Fecha de registro:");
+        jLabel10.setText("Fecha de egreso:");
 
         txtFecha.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
         txtFecha.setText("jLabel5");
@@ -318,10 +318,9 @@ public class ActaIngreso extends javax.swing.JPanel implements Printable{
         txtFecha.setText(fecha);
         txtGerente.setText(gerente);
         
-        String objeto = "El presente acta tiene como objetivo oficializar el proceso de ingreso del paciente "+getPaciente()+" en Centro de Rehabilitación Las Palmas A.C."; 
+        String objeto = "El presente acta tiene como objetivo oficializar el proceso de egreso del paciente "+getPaciente()+" en Centro de Rehabilitación Las Palmas A.C."; 
         String espacio = "\n\n\n";
-        String egreso = "Condiciones del Egreso:\n" +
-"El paciente sera dado de alta hasta su completar su correcta rehabilitación. Se informará al familiar sobre las responsabilidades y cuidados posteriores necesarios para mantener y mejorar el progreso alcanzado.";
+        String egreso = "El paciente ha completado su correcta rehabilitación. Se informará al familiar sobre las responsabilidades y cuidados posteriores necesarios para mantener y mejorar el progreso alcanzado.";
     
         txtTexto.setText(objeto+espacio+egreso);
     }
