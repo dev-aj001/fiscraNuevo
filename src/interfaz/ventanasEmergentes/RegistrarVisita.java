@@ -29,7 +29,7 @@ public class RegistrarVisita extends javax.swing.JFrame {
          
         JPAController jpa = new JPAController();
 
-        listPacientes = jpa.getListaPaciente();
+        listPacientes = jpa.getPacientesActivos();
         
         for (Paciente paciente : listPacientes) {
             String idp = paciente.getNombre()+" "+paciente.getApellidoPa()+" "+paciente.getApellidoMa();

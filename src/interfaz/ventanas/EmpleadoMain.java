@@ -25,6 +25,9 @@ public class EmpleadoMain extends javax.swing.JFrame {
         initComponents();
         lblNombre.setText(userData.nombre);
         lblRol.setText(userData.rol);
+        if(userData.fotoURL != null){
+            imagenPerfil2.setIcon(new javax.swing.ImageIcon(userData.usuario.getImagen()));
+        }
     }
 
     /**
@@ -120,6 +123,11 @@ public class EmpleadoMain extends javax.swing.JFrame {
         roundPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jButton8.setText("Salir");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout roundPanel3Layout = new javax.swing.GroupLayout(roundPanel3);
         roundPanel3.setLayout(roundPanel3Layout);
@@ -270,6 +278,12 @@ public class EmpleadoMain extends javax.swing.JFrame {
         screenPnl.revalidate();
         screenPnl.repaint();
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+         // Salir al login
+        this.dispose();
+        new LoginFrame().setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments

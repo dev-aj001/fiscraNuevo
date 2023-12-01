@@ -114,7 +114,7 @@ public class RegistrarActividad extends javax.swing.JFrame {
 
         pnlHora.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel10.setText("Fecha y hora de la visita");
+        jLabel10.setText("Fecha y hora");
 
         cmbhora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10:00", "11:00", "12:00 ", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00" }));
         cmbhora.addActionListener(new java.awt.event.ActionListener() {
@@ -131,9 +131,9 @@ public class RegistrarActividad extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                .addComponent(date, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmbhora, 0, 104, Short.MAX_VALUE)
+                .addComponent(cmbhora, 0, 133, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlHoraLayout.setVerticalGroup(

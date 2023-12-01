@@ -48,6 +48,7 @@ public class PanelPacientesEm extends javax.swing.JPanel {
         listaDeAlergias = new ArrayList<>();
         listaDeEnfermedad = new ArrayList<>();
         setupExpediente();
+        btngTipo.add(rbtnTipo0);
     }
     
     //--------------------------------------------------------------------------
@@ -191,10 +192,32 @@ public class PanelPacientesEm extends javax.swing.JPanel {
         jXTitledSeparator20 = new org.jdesktop.swingx.JXTitledSeparator();
         jPanel22 = new javax.swing.JPanel();
         jXLabel67 = new org.jdesktop.swingx.JXLabel();
-        txtCasa = new org.jdesktop.swingx.JXTextField();
-        jPanel23 = new javax.swing.JPanel();
-        jXLabel70 = new org.jdesktop.swingx.JXLabel();
-        txtServicios = new org.jdesktop.swingx.JXTextField();
+        jPanel3 = new javax.swing.JPanel();
+        rbtnTipo0 = new javax.swing.JRadioButton();
+        rbtnTipo1 = new javax.swing.JRadioButton();
+        rbtnTipo2 = new javax.swing.JRadioButton();
+        rbtnTipo3 = new javax.swing.JRadioButton();
+        txtTipo = new javax.swing.JTextField();
+        jPanel26 = new javax.swing.JPanel();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        jRadioButton8 = new javax.swing.JRadioButton();
+        txtSituacion = new javax.swing.JTextField();
+        jXLabel68 = new org.jdesktop.swingx.JXLabel();
+        jXLabel69 = new org.jdesktop.swingx.JXLabel();
+        jPanel27 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jSpinner2 = new javax.swing.JSpinner();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel28 = new javax.swing.JPanel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jXLabel71 = new org.jdesktop.swingx.JXLabel();
         jXTitledSeparator21 = new org.jdesktop.swingx.JXTitledSeparator();
         pnlIngresos_ = new org.jdesktop.swingx.JXPanel();
         jXTitledSeparator23 = new org.jdesktop.swingx.JXTitledSeparator();
@@ -228,6 +251,8 @@ public class PanelPacientesEm extends javax.swing.JPanel {
         btnContinuar = new javax.swing.JButton();
         btnRechazar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
+        btngTipo = new javax.swing.ButtonGroup();
+        btngSituacion = new javax.swing.ButtonGroup();
         pnlPacienteList = new custom.componentes.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
@@ -1146,7 +1171,172 @@ public class PanelPacientesEm extends javax.swing.JPanel {
 
         jPanel22.setOpaque(false);
 
-        jXLabel67.setText("Describir la casa en la que vive (material, pisos, cuartos, si renta o es propia, etc.)");
+        jXLabel67.setText("Tipo de vivienda");
+
+        rbtnTipo0.setText("Casa");
+
+        rbtnTipo1.setText("Departamento");
+
+        rbtnTipo2.setText("Cabaña");
+
+        rbtnTipo3.setText("Otro");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rbtnTipo0)
+                    .addComponent(rbtnTipo3))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(rbtnTipo1)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbtnTipo2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtTipo)
+                        .addContainerGap())))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtnTipo0)
+                    .addComponent(rbtnTipo1)
+                    .addComponent(rbtnTipo2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtnTipo3)
+                    .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jRadioButton5.setText("Propia");
+
+        jRadioButton6.setText("Alquilada");
+
+        jRadioButton7.setText("Prestada");
+
+        jRadioButton8.setText("Otro");
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton5)
+                    .addComponent(jRadioButton8))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel26Layout.createSequentialGroup()
+                        .addComponent(jRadioButton6)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioButton7)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtSituacion))
+                .addContainerGap())
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton5)
+                    .addComponent(jRadioButton6)
+                    .addComponent(jRadioButton7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton8)
+                    .addComponent(txtSituacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jXLabel68.setText("Situación de vivienda");
+
+        jXLabel69.setText("Baños y habitaciones");
+
+        jLabel1.setText("Baños");
+
+        jLabel2.setText("Habitaciónes");
+
+        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel27Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)))
+                .addContainerGap())
+        );
+
+        jCheckBox1.setText("Agua potable");
+
+        jCheckBox2.setText("Drenaje");
+
+        jCheckBox3.setText("Luz");
+
+        jCheckBox4.setText("Internet");
+
+        jCheckBox5.setText("Gas");
+
+        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
+        jPanel28.setLayout(jPanel28Layout);
+        jPanel28Layout.setHorizontalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jCheckBox1)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBox2)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBox3)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBox4)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBox5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel28Layout.setVerticalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox1)
+                    .addComponent(jCheckBox2)
+                    .addComponent(jCheckBox3)
+                    .addComponent(jCheckBox4)
+                    .addComponent(jCheckBox5))
+                .addContainerGap())
+        );
+
+        jXLabel71.setText("Servicios");
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
@@ -1155,10 +1345,17 @@ public class PanelPacientesEm extends javax.swing.JPanel {
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCasa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel22Layout.createSequentialGroup()
-                        .addComponent(jXLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 353, Short.MAX_VALUE)))
+                        .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jXLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jXLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jXLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jXLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel22Layout.setVerticalGroup(
@@ -1167,34 +1364,19 @@ public class PanelPacientesEm extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jXLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jPanel23.setOpaque(false);
-
-        jXLabel70.setText("Listar los servicios con los que cuenta en casas (luz, agua, internet, etc.)");
-
-        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
-        jPanel23.setLayout(jPanel23Layout);
-        jPanel23Layout.setHorizontalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel23Layout.createSequentialGroup()
-                        .addComponent(jXLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtServicios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel23Layout.setVerticalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jXLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtServicios, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                .addComponent(jXLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jXLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jXLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1209,7 +1391,6 @@ public class PanelPacientesEm extends javax.swing.JPanel {
                 .addGroup(pnlHogar_Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jXTitledSeparator20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jXTitledSeparator21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1222,14 +1403,12 @@ public class PanelPacientesEm extends javax.swing.JPanel {
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jXTitledSeparator21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pnlIngresos_.setOpaque(false);
 
-        jXTitledSeparator23.setTitle("Gastos mensuales");
+        jXTitledSeparator23.setTitle("Ingresos mensuales");
 
         jPanel20.setOpaque(false);
 
@@ -1880,6 +2059,8 @@ public class PanelPacientesEm extends javax.swing.JPanel {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnRechazar;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.ButtonGroup btngSituacion;
+    private javax.swing.ButtonGroup btngTipo;
     private javax.swing.JCheckBox chckVida;
     private javax.swing.JCheckBox chkDesactivados;
     private javax.swing.JComboBox<String> cmbSeguro;
@@ -1893,9 +2074,16 @@ public class PanelPacientesEm extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField gasto5;
     private javax.swing.JFormattedTextField gasto6;
     private javax.swing.JFormattedTextField gasto7;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1919,21 +2107,30 @@ public class PanelPacientesEm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
     private org.jdesktop.swingx.JXHeader jXHeader1;
     private org.jdesktop.swingx.JXHeader jXHeader2;
     private org.jdesktop.swingx.JXHeader jXHeader3;
@@ -1962,8 +2159,10 @@ public class PanelPacientesEm extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXLabel jXLabel56;
     private org.jdesktop.swingx.JXLabel jXLabel6;
     private org.jdesktop.swingx.JXLabel jXLabel67;
+    private org.jdesktop.swingx.JXLabel jXLabel68;
+    private org.jdesktop.swingx.JXLabel jXLabel69;
     private org.jdesktop.swingx.JXLabel jXLabel7;
-    private org.jdesktop.swingx.JXLabel jXLabel70;
+    private org.jdesktop.swingx.JXLabel jXLabel71;
     private org.jdesktop.swingx.JXLabel jXLabel8;
     private org.jdesktop.swingx.JXLabel jXLabel9;
     private org.jdesktop.swingx.JXTaskPaneContainer jXTaskPaneContainer1;
@@ -2002,6 +2201,10 @@ public class PanelPacientesEm extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXPanel pnlMedico2;
     private org.jdesktop.swingx.JXPanel pnlPaciente;
     private custom.componentes.RoundPanel pnlPacienteList;
+    private javax.swing.JRadioButton rbtnTipo0;
+    private javax.swing.JRadioButton rbtnTipo1;
+    private javax.swing.JRadioButton rbtnTipo2;
+    private javax.swing.JRadioButton rbtnTipo3;
     private custom.componentes.RoundPanel roundPanel2;
     private custom.componentes.RoundPanel roundPanel3;
     private javax.swing.JComboBox<String> sexo;
@@ -2010,7 +2213,6 @@ public class PanelPacientesEm extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXTextField txtApellido2Paciente;
     private javax.swing.JTextField txtBuscar;
     private org.jdesktop.swingx.JXTextField txtCallePaciente;
-    private org.jdesktop.swingx.JXTextField txtCasa;
     private org.jdesktop.swingx.JXTextField txtColoniaPaciente;
     private org.jdesktop.swingx.JXTextField txtCorreoPaciente;
     private javax.swing.JFormattedTextField txtCuota;
@@ -2034,7 +2236,8 @@ public class PanelPacientesEm extends javax.swing.JPanel {
     private org.jdesktop.swingx.JXTextField txtNumCasaPaciente;
     private javax.swing.JTextArea txtRazoning;
     private org.jdesktop.swingx.JXTextField txtSeguro;
-    private org.jdesktop.swingx.JXTextField txtServicios;
+    private javax.swing.JTextField txtSituacion;
+    private javax.swing.JTextField txtTipo;
     private javax.swing.JTextArea txtTratamientos;
     // End of variables declaration//GEN-END:variables
 
@@ -2153,8 +2356,8 @@ public class PanelPacientesEm extends javax.swing.JPanel {
         txtGastos.setValue(0);
         
         //Hogar
-        txtCasa.setText("");
-        txtServicios.setText("");
+        //txtCasa.setText("");
+        //txtServicios.setText("");
         
         //Ingresos 
         txtIngresos.setValue(0);
@@ -2260,7 +2463,7 @@ public class PanelPacientesEm extends javax.swing.JPanel {
         estudio.setGastos6(Double.valueOf(gasto6.getText().replace(",", "")));
         estudio.setGastos7(Double.valueOf(gasto7.getText().replace(",", "")));
         estudio.setGastosT(Double.valueOf(txtGastos.getText().replace(",", "")));
-        estudio.setTipoCasa(txtCasa.getText());
+//        estudio.setTipoCasa(txtCasa.getText());
         //Falta servicio y estado civil
         
         //Alergias
@@ -2359,7 +2562,7 @@ public class PanelPacientesEm extends javax.swing.JPanel {
             estudio.setGastos6(Double.valueOf(gasto6.getText().replace(",", "")));
             estudio.setGastos7(Double.valueOf(gasto7.getText().replace(",", "")));
             estudio.setGastosT(Double.valueOf(txtGastos.getText().replace(",", "")));
-            estudio.setTipoCasa(txtCasa.getText());
+//            estudio.setTipoCasa(txtCasa.getText());
             //Falta servicio y estado civil
 
             //Alergias
@@ -2438,8 +2641,8 @@ public class PanelPacientesEm extends javax.swing.JPanel {
         txtGastos.setEnabled(false);
         
         //Hogar
-        txtCasa.setEnabled(false);
-        txtServicios.setEnabled(false);
+//        txtCasa.setEnabled(false);
+//        txtServicios.setEnabled(false);
         
         //Ingresos 
         txtIngresos.setEnabled(false);
@@ -2495,8 +2698,8 @@ public class PanelPacientesEm extends javax.swing.JPanel {
         txtGastos.setEnabled(true);
         
         //Hogar
-        txtCasa.setEnabled(true);
-        txtServicios.setEnabled(true);
+//        txtCasa.setEnabled(true);
+//        txtServicios.setEnabled(true);
         
         //Ingresos 
         txtIngresos.setEnabled(true);
@@ -2712,8 +2915,8 @@ public class PanelPacientesEm extends javax.swing.JPanel {
         txtGastos.setValue(estudio.getGastosT());
         
         //Hogar
-        txtCasa.setText(estudio.getTipoCasa());
-        txtServicios.setText("");
+//        txtCasa.setText(estudio.getTipoCasa());
+//        txtServicios.setText("");
         
         //Ingresos 
         txtIngresos.setValue(estudio.getIngresosT());

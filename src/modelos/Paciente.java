@@ -42,6 +42,9 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Paciente.findByRazonIngreso", query = "SELECT p FROM Paciente p WHERE p.razonIngreso = :razonIngreso")})
 public class Paciente implements Serializable {
 
+    @Column(name = "CURP")
+    private String curp;
+
     @Column(name = "correo")
     private String correo;
     @Column(name = "telefono")
@@ -269,5 +272,13 @@ public class Paciente implements Serializable {
         getApellidoMa(), getCalle() + ", " + getColonia() + ", " + getMunicipio(), 
         getCorreo(), getTelefono(), getSexo(), Funciones.formatedFecha(getFechaIngreso()) 
         , Funciones.estatusPacienteToString(getEstatus())};
+    }
+
+    public String getCurp() {
+        return curp;
+    }
+
+    public void setCurp(String curp) {
+        this.curp = curp;
     }
 }

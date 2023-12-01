@@ -158,8 +158,6 @@ public class JPAController {
             estudioJPA.destroy(id);
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(JPAController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalOrphanException ex) {
-            Logger.getLogger(JPAController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

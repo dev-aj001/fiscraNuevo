@@ -14,7 +14,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import jpa.exceptions.NonexistentEntityException;
 import jpa.exceptions.PreexistingEntityException;
-import modelos.Estudio;
 import modelos.Expediente;
 import modelos.Familiar;
 import modelos.Paciente;
@@ -39,11 +38,6 @@ public class ExpedienteJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Estudio estudioidEstudio = expediente.getEstudioidEstudio();
-            if (estudioidEstudio != null) {
-                estudioidEstudio = em.getReference(estudioidEstudio.getClass(), estudioidEstudio.getIdEstudio());
-                expediente.setEstudioidEstudio(estudioidEstudio);
-            }
             Familiar familiaridFamiliar = expediente.getFamiliaridFamiliar();
             if (familiaridFamiliar != null) {
                 familiaridFamiliar = em.getReference(familiaridFamiliar.getClass(), familiaridFamiliar.getIdFamiliar());
@@ -55,10 +49,6 @@ public class ExpedienteJpaController implements Serializable {
                 expediente.setPacienteidPaciente(pacienteidPaciente);
             }
             em.persist(expediente);
-            if (estudioidEstudio != null) {
-                estudioidEstudio.getExpedienteList().add(expediente);
-                estudioidEstudio = em.merge(estudioidEstudio);
-            }
             if (familiaridFamiliar != null) {
                 familiaridFamiliar.getExpedienteList().add(expediente);
                 familiaridFamiliar = em.merge(familiaridFamiliar);
@@ -86,16 +76,10 @@ public class ExpedienteJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             Expediente persistentExpediente = em.find(Expediente.class, expediente.getIdExpediente());
-            Estudio estudioidEstudioOld = persistentExpediente.getEstudioidEstudio();
-            Estudio estudioidEstudioNew = expediente.getEstudioidEstudio();
             Familiar familiaridFamiliarOld = persistentExpediente.getFamiliaridFamiliar();
             Familiar familiaridFamiliarNew = expediente.getFamiliaridFamiliar();
             Paciente pacienteidPacienteOld = persistentExpediente.getPacienteidPaciente();
             Paciente pacienteidPacienteNew = expediente.getPacienteidPaciente();
-            if (estudioidEstudioNew != null) {
-                estudioidEstudioNew = em.getReference(estudioidEstudioNew.getClass(), estudioidEstudioNew.getIdEstudio());
-                expediente.setEstudioidEstudio(estudioidEstudioNew);
-            }
             if (familiaridFamiliarNew != null) {
                 familiaridFamiliarNew = em.getReference(familiaridFamiliarNew.getClass(), familiaridFamiliarNew.getIdFamiliar());
                 expediente.setFamiliaridFamiliar(familiaridFamiliarNew);
@@ -105,14 +89,6 @@ public class ExpedienteJpaController implements Serializable {
                 expediente.setPacienteidPaciente(pacienteidPacienteNew);
             }
             expediente = em.merge(expediente);
-            if (estudioidEstudioOld != null && !estudioidEstudioOld.equals(estudioidEstudioNew)) {
-                estudioidEstudioOld.getExpedienteList().remove(expediente);
-                estudioidEstudioOld = em.merge(estudioidEstudioOld);
-            }
-            if (estudioidEstudioNew != null && !estudioidEstudioNew.equals(estudioidEstudioOld)) {
-                estudioidEstudioNew.getExpedienteList().add(expediente);
-                estudioidEstudioNew = em.merge(estudioidEstudioNew);
-            }
             if (familiaridFamiliarOld != null && !familiaridFamiliarOld.equals(familiaridFamiliarNew)) {
                 familiaridFamiliarOld.getExpedienteList().remove(expediente);
                 familiaridFamiliarOld = em.merge(familiaridFamiliarOld);
@@ -157,11 +133,6 @@ public class ExpedienteJpaController implements Serializable {
                 expediente.getIdExpediente();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The expediente with id " + id + " no longer exists.", enfe);
-            }
-            Estudio estudioidEstudio = expediente.getEstudioidEstudio();
-            if (estudioidEstudio != null) {
-                estudioidEstudio.getExpedienteList().remove(expediente);
-                estudioidEstudio = em.merge(estudioidEstudio);
             }
             Familiar familiaridFamiliar = expediente.getFamiliaridFamiliar();
             if (familiaridFamiliar != null) {

@@ -5,9 +5,7 @@
 package modelos;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -42,9 +39,22 @@ import javax.persistence.Table;
     @NamedQuery(name = "Estudio.findByGastos6", query = "SELECT e FROM Estudio e WHERE e.gastos6 = :gastos6"),
     @NamedQuery(name = "Estudio.findByGastos7", query = "SELECT e FROM Estudio e WHERE e.gastos7 = :gastos7"),
     @NamedQuery(name = "Estudio.findByIngresosT", query = "SELECT e FROM Estudio e WHERE e.ingresosT = :ingresosT"),
-    @NamedQuery(name = "Estudio.findByTipoCasa", query = "SELECT e FROM Estudio e WHERE e.tipoCasa = :tipoCasa"),
     @NamedQuery(name = "Estudio.findByPersonas", query = "SELECT e FROM Estudio e WHERE e.personas = :personas"),
-    @NamedQuery(name = "Estudio.findByEstadoCivil", query = "SELECT e FROM Estudio e WHERE e.estadoCivil = :estadoCivil")})
+    @NamedQuery(name = "Estudio.findByEstadoCivil", query = "SELECT e FROM Estudio e WHERE e.estadoCivil = :estadoCivil"),
+    @NamedQuery(name = "Estudio.findByOpVivienda", query = "SELECT e FROM Estudio e WHERE e.opVivienda = :opVivienda"),
+    @NamedQuery(name = "Estudio.findByTxtVivienda", query = "SELECT e FROM Estudio e WHERE e.txtVivienda = :txtVivienda"),
+    @NamedQuery(name = "Estudio.findByOpSituacion", query = "SELECT e FROM Estudio e WHERE e.opSituacion = :opSituacion"),
+    @NamedQuery(name = "Estudio.findByTxtSituacion", query = "SELECT e FROM Estudio e WHERE e.txtSituacion = :txtSituacion"),
+    @NamedQuery(name = "Estudio.findByBanos", query = "SELECT e FROM Estudio e WHERE e.banos = :banos"),
+    @NamedQuery(name = "Estudio.findByHabitaciones", query = "SELECT e FROM Estudio e WHERE e.habitaciones = :habitaciones"),
+    @NamedQuery(name = "Estudio.findByOpServicio1", query = "SELECT e FROM Estudio e WHERE e.opServicio1 = :opServicio1"),
+    @NamedQuery(name = "Estudio.findByOpConstruccion", query = "SELECT e FROM Estudio e WHERE e.opConstruccion = :opConstruccion"),
+    @NamedQuery(name = "Estudio.findByOpTecho", query = "SELECT e FROM Estudio e WHERE e.opTecho = :opTecho"),
+    @NamedQuery(name = "Estudio.findByOpPiso", query = "SELECT e FROM Estudio e WHERE e.opPiso = :opPiso"),
+    @NamedQuery(name = "Estudio.findByOpServicio2", query = "SELECT e FROM Estudio e WHERE e.opServicio2 = :opServicio2"),
+    @NamedQuery(name = "Estudio.findByOpServicio3", query = "SELECT e FROM Estudio e WHERE e.opServicio3 = :opServicio3"),
+    @NamedQuery(name = "Estudio.findByOpServicio5", query = "SELECT e FROM Estudio e WHERE e.opServicio5 = :opServicio5"),
+    @NamedQuery(name = "Estudio.findByOpServicio4", query = "SELECT e FROM Estudio e WHERE e.opServicio4 = :opServicio4")})
 public class Estudio implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -84,14 +94,38 @@ public class Estudio implements Serializable {
     private Double gastos7;
     @Column(name = "ingresosT")
     private Double ingresosT;
-    @Column(name = "tipoCasa")
-    private String tipoCasa;
     @Column(name = "personas")
     private Integer personas;
     @Column(name = "estadoCivil")
     private Integer estadoCivil;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "estudioidEstudio")
-    private List<Expediente> expedienteList;
+    @Column(name = "opVivienda")
+    private Integer opVivienda;
+    @Column(name = "txtVivienda")
+    private String txtVivienda;
+    @Column(name = "opSituacion")
+    private Integer opSituacion;
+    @Column(name = "txtSituacion")
+    private String txtSituacion;
+    @Column(name = "banos")
+    private Integer banos;
+    @Column(name = "habitaciones")
+    private Integer habitaciones;
+    @Column(name = "opServicio1")
+    private Integer opServicio1;
+    @Column(name = "opConstruccion")
+    private Integer opConstruccion;
+    @Column(name = "opTecho")
+    private Integer opTecho;
+    @Column(name = "opPiso")
+    private Integer opPiso;
+    @Column(name = "opServicio2")
+    private Integer opServicio2;
+    @Column(name = "opServicio3")
+    private Integer opServicio3;
+    @Column(name = "opServicio5")
+    private Integer opServicio5;
+    @Column(name = "opServicio4")
+    private Integer opServicio4;
 
     public Estudio() {
     }
@@ -228,14 +262,6 @@ public class Estudio implements Serializable {
         this.ingresosT = ingresosT;
     }
 
-    public String getTipoCasa() {
-        return tipoCasa;
-    }
-
-    public void setTipoCasa(String tipoCasa) {
-        this.tipoCasa = tipoCasa;
-    }
-
     public Integer getPersonas() {
         return personas;
     }
@@ -252,12 +278,116 @@ public class Estudio implements Serializable {
         this.estadoCivil = estadoCivil;
     }
 
-    public List<Expediente> getExpedienteList() {
-        return expedienteList;
+    public Integer getOpVivienda() {
+        return opVivienda;
     }
 
-    public void setExpedienteList(List<Expediente> expedienteList) {
-        this.expedienteList = expedienteList;
+    public void setOpVivienda(Integer opVivienda) {
+        this.opVivienda = opVivienda;
+    }
+
+    public String getTxtVivienda() {
+        return txtVivienda;
+    }
+
+    public void setTxtVivienda(String txtVivienda) {
+        this.txtVivienda = txtVivienda;
+    }
+
+    public Integer getOpSituacion() {
+        return opSituacion;
+    }
+
+    public void setOpSituacion(Integer opSituacion) {
+        this.opSituacion = opSituacion;
+    }
+
+    public String getTxtSituacion() {
+        return txtSituacion;
+    }
+
+    public void setTxtSituacion(String txtSituacion) {
+        this.txtSituacion = txtSituacion;
+    }
+
+    public Integer getBanos() {
+        return banos;
+    }
+
+    public void setBanos(Integer banos) {
+        this.banos = banos;
+    }
+
+    public Integer getHabitaciones() {
+        return habitaciones;
+    }
+
+    public void setHabitaciones(Integer habitaciones) {
+        this.habitaciones = habitaciones;
+    }
+
+    public Integer getOpServicio1() {
+        return opServicio1;
+    }
+
+    public void setOpServicio1(Integer opServicio1) {
+        this.opServicio1 = opServicio1;
+    }
+
+    public Integer getOpConstruccion() {
+        return opConstruccion;
+    }
+
+    public void setOpConstruccion(Integer opConstruccion) {
+        this.opConstruccion = opConstruccion;
+    }
+
+    public Integer getOpTecho() {
+        return opTecho;
+    }
+
+    public void setOpTecho(Integer opTecho) {
+        this.opTecho = opTecho;
+    }
+
+    public Integer getOpPiso() {
+        return opPiso;
+    }
+
+    public void setOpPiso(Integer opPiso) {
+        this.opPiso = opPiso;
+    }
+
+    public Integer getOpServicio2() {
+        return opServicio2;
+    }
+
+    public void setOpServicio2(Integer opServicio2) {
+        this.opServicio2 = opServicio2;
+    }
+
+    public Integer getOpServicio3() {
+        return opServicio3;
+    }
+
+    public void setOpServicio3(Integer opServicio3) {
+        this.opServicio3 = opServicio3;
+    }
+
+    public Integer getOpServicio5() {
+        return opServicio5;
+    }
+
+    public void setOpServicio5(Integer opServicio5) {
+        this.opServicio5 = opServicio5;
+    }
+
+    public Integer getOpServicio4() {
+        return opServicio4;
+    }
+
+    public void setOpServicio4(Integer opServicio4) {
+        this.opServicio4 = opServicio4;
     }
 
     @Override

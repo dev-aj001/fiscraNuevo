@@ -318,7 +318,14 @@ public class PanelVisitas extends javax.swing.JPanel {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
         //getVisita();
-        new RegistrarVisita(this).setVisible(true);
+        JPAController jpa = new JPAController();
+
+        List<Paciente> listPacientes = jpa.getPacientesActivos();
+        
+        if(listPacientes.isEmpty()){
+            JOptionPane.showMessageDialog(this, "No hay pacientes activos en el sistema para agendar visitas");
+        }else   
+            new RegistrarVisita(this).setVisible(true);
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed

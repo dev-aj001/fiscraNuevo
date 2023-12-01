@@ -5,16 +5,13 @@
 package jpa;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import modelos.Expediente;
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import jpa.exceptions.IllegalOrphanException;
 import jpa.exceptions.NonexistentEntityException;
 import modelos.Estudio;
 
@@ -34,29 +31,11 @@ public class EstudioJpaController implements Serializable {
     }
 
     public void create(Estudio estudio) {
-        if (estudio.getExpedienteList() == null) {
-            estudio.setExpedienteList(new ArrayList<Expediente>());
-        }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            List<Expediente> attachedExpedienteList = new ArrayList<Expediente>();
-            for (Expediente expedienteListExpedienteToAttach : estudio.getExpedienteList()) {
-                expedienteListExpedienteToAttach = em.getReference(expedienteListExpedienteToAttach.getClass(), expedienteListExpedienteToAttach.getIdExpediente());
-                attachedExpedienteList.add(expedienteListExpedienteToAttach);
-            }
-            estudio.setExpedienteList(attachedExpedienteList);
             em.persist(estudio);
-            for (Expediente expedienteListExpediente : estudio.getExpedienteList()) {
-                Estudio oldEstudioidEstudioOfExpedienteListExpediente = expedienteListExpediente.getEstudioidEstudio();
-                expedienteListExpediente.setEstudioidEstudio(estudio);
-                expedienteListExpediente = em.merge(expedienteListExpediente);
-                if (oldEstudioidEstudioOfExpedienteListExpediente != null) {
-                    oldEstudioidEstudioOfExpedienteListExpediente.getExpedienteList().remove(expedienteListExpediente);
-                    oldEstudioidEstudioOfExpedienteListExpediente = em.merge(oldEstudioidEstudioOfExpedienteListExpediente);
-                }
-            }
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -65,45 +44,12 @@ public class EstudioJpaController implements Serializable {
         }
     }
 
-    public void edit(Estudio estudio) throws IllegalOrphanException, NonexistentEntityException, Exception {
+    public void edit(Estudio estudio) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Estudio persistentEstudio = em.find(Estudio.class, estudio.getIdEstudio());
-            List<Expediente> expedienteListOld = persistentEstudio.getExpedienteList();
-            List<Expediente> expedienteListNew = estudio.getExpedienteList();
-            List<String> illegalOrphanMessages = null;
-            for (Expediente expedienteListOldExpediente : expedienteListOld) {
-                if (!expedienteListNew.contains(expedienteListOldExpediente)) {
-                    if (illegalOrphanMessages == null) {
-                        illegalOrphanMessages = new ArrayList<String>();
-                    }
-                    illegalOrphanMessages.add("You must retain Expediente " + expedienteListOldExpediente + " since its estudioidEstudio field is not nullable.");
-                }
-            }
-            if (illegalOrphanMessages != null) {
-                throw new IllegalOrphanException(illegalOrphanMessages);
-            }
-            List<Expediente> attachedExpedienteListNew = new ArrayList<Expediente>();
-            for (Expediente expedienteListNewExpedienteToAttach : expedienteListNew) {
-                expedienteListNewExpedienteToAttach = em.getReference(expedienteListNewExpedienteToAttach.getClass(), expedienteListNewExpedienteToAttach.getIdExpediente());
-                attachedExpedienteListNew.add(expedienteListNewExpedienteToAttach);
-            }
-            expedienteListNew = attachedExpedienteListNew;
-            estudio.setExpedienteList(expedienteListNew);
             estudio = em.merge(estudio);
-            for (Expediente expedienteListNewExpediente : expedienteListNew) {
-                if (!expedienteListOld.contains(expedienteListNewExpediente)) {
-                    Estudio oldEstudioidEstudioOfExpedienteListNewExpediente = expedienteListNewExpediente.getEstudioidEstudio();
-                    expedienteListNewExpediente.setEstudioidEstudio(estudio);
-                    expedienteListNewExpediente = em.merge(expedienteListNewExpediente);
-                    if (oldEstudioidEstudioOfExpedienteListNewExpediente != null && !oldEstudioidEstudioOfExpedienteListNewExpediente.equals(estudio)) {
-                        oldEstudioidEstudioOfExpedienteListNewExpediente.getExpedienteList().remove(expedienteListNewExpediente);
-                        oldEstudioidEstudioOfExpedienteListNewExpediente = em.merge(oldEstudioidEstudioOfExpedienteListNewExpediente);
-                    }
-                }
-            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -121,7 +67,7 @@ public class EstudioJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws IllegalOrphanException, NonexistentEntityException {
+    public void destroy(Integer id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -132,17 +78,6 @@ public class EstudioJpaController implements Serializable {
                 estudio.getIdEstudio();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The estudio with id " + id + " no longer exists.", enfe);
-            }
-            List<String> illegalOrphanMessages = null;
-            List<Expediente> expedienteListOrphanCheck = estudio.getExpedienteList();
-            for (Expediente expedienteListOrphanCheckExpediente : expedienteListOrphanCheck) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("This Estudio (" + estudio + ") cannot be destroyed since the Expediente " + expedienteListOrphanCheckExpediente + " in its expedienteList field has a non-nullable estudioidEstudio field.");
-            }
-            if (illegalOrphanMessages != null) {
-                throw new IllegalOrphanException(illegalOrphanMessages);
             }
             em.remove(estudio);
             em.getTransaction().commit();

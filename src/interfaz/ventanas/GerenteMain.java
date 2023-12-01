@@ -20,8 +20,9 @@ public class GerenteMain extends javax.swing.JFrame {
     public GerenteMain() {
         initComponents();
         initSyles();
-        
-        imagenPerfil2.setIcon(new javax.swing.ImageIcon(userData.usuario.getImagen()));
+        if(userData.fotoURL != null){
+            imagenPerfil2.setIcon(new javax.swing.ImageIcon(userData.usuario.getImagen()));
+        }
         //screenPnl.add(new PanelVisitas());
     }
 
