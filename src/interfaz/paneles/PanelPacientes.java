@@ -12,8 +12,10 @@ import custom.componentes.pnlEnfermedad;
 import interfaz.ventanasEmergentes.ModificarUsuario;
 import interfaz.ventanasEmergentes.RegistrarUsuario;
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -104,6 +106,7 @@ public class PanelPacientes extends javax.swing.JPanel {
         datePaciente1 = new com.toedter.calendar.JDateChooser();
         jXLabel15 = new org.jdesktop.swingx.JXLabel();
         txtCURP = new org.jdesktop.swingx.JXTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jXLabel22 = new org.jdesktop.swingx.JXLabel();
         jXLabel23 = new org.jdesktop.swingx.JXLabel();
@@ -309,6 +312,19 @@ public class PanelPacientes extends javax.swing.JPanel {
 
         jXLabel15.setText("CURP");
 
+        txtCURP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCURPKeyTyped(evt);
+            }
+        });
+
+        jButton1.setText("Consultar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -321,19 +337,23 @@ public class PanelPacientes extends javax.swing.JPanel {
                     .addComponent(jXLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtApellido1Paciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                    .addComponent(txtApellido1Paciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                     .addComponent(txtNombrePaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtApellido2Paciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(57, 57, 57)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jXLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jXLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(sexo, 0, 147, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jXLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jXLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(sexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(datePaciente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCURP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtCURP, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -355,11 +375,12 @@ public class PanelPacientes extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jXLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1))
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jXLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtApellido2Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtApellido2Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jXLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -2177,6 +2198,31 @@ public class PanelPacientes extends javax.swing.JPanel {
         bTipo= !bTipo;
     }//GEN-LAST:event_rbtnTipo3StateChanged
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        openURL("https://www.gob.mx/curp/");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtCURPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCURPKeyTyped
+        // TODO add your handling code here:
+        if(!new JPAController().getpacientePorCurp(txtCURP.getText()).isEmpty()){
+            JOptionPane.showMessageDialog(this, "Esta curp ya fue registrada anteriormente,\nbusque en el catalogo de pacientes");
+        }
+    }//GEN-LAST:event_txtCURPKeyTyped
+
+    private static void openURL(String url) {
+        try {
+            // Obtener el escritorio del sistema
+            Desktop desktop = Desktop.getDesktop();
+
+            // Abrir la URL en el navegador predeterminado
+            desktop.browse(new URI(url));
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Al parecer ocurrio un error");
+        }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
@@ -2208,6 +2254,7 @@ public class PanelPacientes extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField gasto5;
     private javax.swing.JFormattedTextField gasto6;
     private javax.swing.JFormattedTextField gasto7;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
@@ -2592,6 +2639,7 @@ public class PanelPacientes extends javax.swing.JPanel {
         paciente.setColonia(txtColoniaPaciente.getText());
         paciente.setMunicipio(txtLocalidadPaciente.getText());
         paciente.setEstatus(estatus);
+        paciente.setCurp(txtCURP.getText());
         
         //Datos familiar
         familiar.setNombre(txtFamiliarNombre.getText());
@@ -2737,6 +2785,9 @@ public class PanelPacientes extends javax.swing.JPanel {
             pacienteSeleccionado.setColonia(txtColoniaPaciente.getText());
             pacienteSeleccionado.setMunicipio(txtLocalidadPaciente.getText());
             pacienteSeleccionado.setEstatus(0);
+            
+            
+            pacienteSeleccionado.setCurp(txtCURP.getText());
             
 
             //Datos familiar
@@ -2896,7 +2947,38 @@ public class PanelPacientes extends javax.swing.JPanel {
         txtGastos.setEnabled(false);
         
         //Hogar
-        //hacer
+        rbtnTipo0.setEnabled(true);
+        rbtnTipo1.setEnabled(true);
+        rbtnTipo2.setEnabled(true);
+        rbtnTipo3.setEnabled(true);
+        
+        txtTipo.setEnabled(false);
+        txtSituacion.setEnabled(false);
+        
+        tbtn0.setEnabled(false);
+        tbtn2.setEnabled(false);
+        tbtn3.setEnabled(false);
+        tbtn3.setEnabled(false);
+        
+        jSpinner1.setEnabled(false);
+        jSpinner2.setEnabled(false);
+        
+        jCheckBox1.setEnabled(false);
+        jCheckBox2.setEnabled(false);
+        jCheckBox3.setEnabled(false);
+        jCheckBox4.setEnabled(false);
+        jCheckBox5.setEnabled(false);
+        
+        cmbMateriales1.setEnabled(false);
+        cmbMateriales2.setEnabled(false);
+        cmbMateriales3.setEnabled(false);
+        
+        sexo.setEnabled(false);
+        txtCURP.setEnabled(false);
+        
+        jButton1.setEnabled(false);
+        btnAgregarAlergia.setEnabled(false);
+        btnAgregarEnfermedad.setEnabled(false);
         
         //Ingresos 
         txtIngresos.setEnabled(false);
@@ -2952,7 +3034,38 @@ public class PanelPacientes extends javax.swing.JPanel {
         txtGastos.setEnabled(true);
         
         //Hogar
-        //hacer
+        rbtnTipo0.setEnabled(true);
+        rbtnTipo1.setEnabled(true);
+        rbtnTipo2.setEnabled(true);
+        rbtnTipo3.setEnabled(true);
+        
+        txtTipo.setEnabled(true);
+        txtSituacion.setEnabled(true);
+        
+        tbtn0.setEnabled(true);
+        tbtn2.setEnabled(true);
+        tbtn3.setEnabled(true);
+        tbtn3.setEnabled(true);
+        
+        jSpinner1.setEnabled(true);
+        jSpinner2.setEnabled(true);
+        
+        jCheckBox1.setEnabled(true);
+        jCheckBox2.setEnabled(true);
+        jCheckBox3.setEnabled(true);
+        jCheckBox4.setEnabled(true);
+        jCheckBox5.setEnabled(true);
+        
+        cmbMateriales1.setEnabled(true);
+        cmbMateriales2.setEnabled(true);
+        cmbMateriales3.setEnabled(true);
+        
+        sexo.setEnabled(true);
+        txtCURP.setEnabled(true);
+        
+        jButton1.setEnabled(true);
+        btnAgregarAlergia.setEnabled(true);
+        btnAgregarEnfermedad.setEnabled(true);
         
         //Ingresos 
         txtIngresos.setEnabled(true);
@@ -3143,6 +3256,7 @@ public class PanelPacientes extends javax.swing.JPanel {
         txtNumCasaPaciente.setText(pacienteSeleccionado.getTelefono());
         txtCorreoPaciente.setText(pacienteSeleccionado.getCorreo());
         sexo.setSelectedIndex(pacienteSeleccionado.getSexo());
+        txtCURP.setText(pacienteSeleccionado.getCurp());
         
         //Familiar
         txtFamiliarApellido1.setText(familiar.getApellidoPa());

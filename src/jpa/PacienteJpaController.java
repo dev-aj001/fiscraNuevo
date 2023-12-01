@@ -337,4 +337,15 @@ public class PacienteJpaController implements Serializable {
         }
     }
     
+    public List<Paciente> pacientePorCurp(String curp) {
+        EntityManager em = getEntityManager();
+        try {
+            String jpql = "SELECT p FROM Paciente p WHERE p.curp = :curp";
+            TypedQuery<Paciente> query = em.createQuery(jpql, Paciente.class);
+            query.setParameter("curp", curp);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
 }

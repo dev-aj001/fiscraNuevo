@@ -370,4 +370,8 @@ public class JPAController {
     public List<Actividad> getActividadPorAsunto(String nombre){
         return actividadJPA.buscarActividadPorAsunto(nombre);
     }
+    
+    public List<Paciente> getpacientePorCurp(String nombre){
+        return pacienteJPA.pacientePorCurp(nombre);
+    }
 }
