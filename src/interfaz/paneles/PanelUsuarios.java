@@ -334,7 +334,8 @@ public class PanelUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBuscarActionPerformed
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
-        // TODO add your handling code here:
+        String nombre = txtBuscar.getText();
+        actualizarTablaBusqueda(nombre);
     }//GEN-LAST:event_txtBuscarKeyTyped
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
@@ -472,6 +473,31 @@ public class PanelUsuarios extends javax.swing.JPanel {
                     dtm.addRow(usuario.toArray());
                 }
             }
+
+            //Asignar el modelo a la tabla
+            tabla.setModel(dtm);
+        } catch (Exception e) {
+            System.out.println("error: " + e.getMessage());
+        }
+    }
+
+    private void actualizarTablaBusqueda(String nombre) {
+        try {
+            JPAController jpa = new JPAController();
+
+            //Obtener la lista de usuarios activos e inactivos
+            
+            List<Usuario> usuariosBusqueda = jpa.getUsuariosPorNombreCompleto(nombre);
+            
+
+            //Obtener el modelo de la tabla y limpiar las columnas
+            DefaultTableModel dtm = (DefaultTableModel)tabla.getModel();
+            dtm.setRowCount(0);
+
+            
+            for (Usuario usuario : usuariosBusqueda) {
+                    dtm.addRow(usuario.toArray());
+                }
 
             //Asignar el modelo a la tabla
             tabla.setModel(dtm);

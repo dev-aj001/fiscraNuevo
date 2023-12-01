@@ -358,5 +358,16 @@ public class JPAController {
     public List<Paciente> getPacientesPorNombreCompleto(String nombre){
         return pacienteJPA.buscarPacientesPorNombreCompleto(nombre);
     }
+    
+    public List<Usuario> getUsuariosPorNombreCompleto(String nombre){
+        return usuarioJPA.buscarPacientesPorNombreCompleto(nombre);
+    }
+    
+    public List<Visita> getVisitaPorAsunto(String nombre){
+        return visitaJPA.buscarVisitaPorAsunto(nombre);
+    }
 
+    public List<Actividad> getActividadPorAsunto(String nombre){
+        return actividadJPA.buscarActividadPorAsunto(nombre);
+    }
 }

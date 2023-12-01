@@ -179,4 +179,19 @@ public class VisitaJpaController implements Serializable {
         }
     }
     
+    public List<Visita> buscarVisitaPorAsunto(String nombreCompleto) {
+        EntityManager em = getEntityManager();
+        try {
+            String jpql = "SELECT v FROM Visita v " +
+                          "WHERE LOWER(CONCAT(v.asunto, ' ', v.familiar, ' ', v.parentesco)) LIKE LOWER(:nombreCompleto) ";
+
+            TypedQuery<Visita> query = em.createQuery(jpql, Visita.class);
+            query.setParameter("nombreCompleto", "%" + nombreCompleto + "%");
+
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
 }

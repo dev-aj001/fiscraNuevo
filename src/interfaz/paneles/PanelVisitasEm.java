@@ -76,8 +76,6 @@ public class PanelVisitasEm extends javax.swing.JPanel {
         btnActualizar = new javax.swing.JButton();
         roundPanel2 = new custom.componentes.RoundPanel();
         jLabel1 = new javax.swing.JLabel();
-        roundPanel3 = new custom.componentes.RoundPanel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnDesactivar = new javax.swing.JButton();
@@ -102,7 +100,7 @@ public class PanelVisitasEm extends javax.swing.JPanel {
         roundPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Total de pacientess: 0");
+        jLabel1.setText("Total de visitas: 0");
 
         javax.swing.GroupLayout roundPanel2Layout = new javax.swing.GroupLayout(roundPanel2);
         roundPanel2.setLayout(roundPanel2Layout);
@@ -121,28 +119,6 @@ public class PanelVisitasEm extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        roundPanel3.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Actualmente activos: 0");
-
-        javax.swing.GroupLayout roundPanel3Layout = new javax.swing.GroupLayout(roundPanel3);
-        roundPanel3.setLayout(roundPanel3Layout);
-        roundPanel3Layout.setHorizontalGroup(
-            roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        roundPanel3Layout.setVerticalGroup(
-            roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -150,8 +126,6 @@ public class PanelVisitasEm extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(roundPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -162,7 +136,6 @@ public class PanelVisitasEm extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(roundPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -203,7 +176,7 @@ public class PanelVisitasEm extends javax.swing.JPanel {
                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnDesactivar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -230,7 +203,7 @@ public class PanelVisitasEm extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(228, 228, 228)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -295,7 +268,8 @@ public class PanelVisitasEm extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBuscarActionPerformed
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
-        // TODO add your handling code here:
+        String nombre = txtBuscar.getText();
+        actualizarTablaBusqueda(nombre);
     }//GEN-LAST:event_txtBuscarKeyTyped
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
@@ -312,7 +286,6 @@ public class PanelVisitasEm extends javax.swing.JPanel {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnDesactivar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -321,7 +294,6 @@ public class PanelVisitasEm extends javax.swing.JPanel {
     private javax.swing.JLabel lblTitulo;
     private custom.componentes.RoundPanel roundPanel1;
     private custom.componentes.RoundPanel roundPanel2;
-    private custom.componentes.RoundPanel roundPanel3;
     private javax.swing.JTable tabla;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
@@ -340,24 +312,54 @@ public class PanelVisitasEm extends javax.swing.JPanel {
         //Poner iconos
         btnActualizar.setIcon(Iconos.update());
         btnDesactivar.setIcon(Iconos.bloquear());
-        
     }
 
     public void actualizarTabla() {
-        System.out.println("hola");
         DefaultTableModel dtm = (DefaultTableModel)tabla.getModel();
         dtm.setRowCount(0);
         
         List<Visita> visitas = new JPAController().getListaVisita();
         
         for (Visita visita : visitas) {
-
-            Object[] data = new Object[]{visita.getIdVisita(), visita.getAsunto(),visita.getPacienteidPaciente().getNombre(), visita.getFamiliar(), visita.getParentesco(),
+            if(visita.getPacienteidPaciente().getEstatus()==0){
+                Object[] data = new Object[]{visita.getIdVisita(), visita.getAsunto(),visita.getPacienteidPaciente().getNombre(), visita.getFamiliar(), visita.getParentesco(),
                 Funciones.formatedFecha(visita.getFecha()), visita.getHora(), Funciones.estatusActividadToString(visita.getEstatus())};
-            dtm.addRow(data);
+                dtm.addRow(data);
+            }
         }
 
         tabla.setModel(dtm);
         
+        jLabel1.setText("Total de visitas: " + tabla.getRowCount());
+        
+    }
+
+    private void actualizarTablaBusqueda(String nombre) {
+        try {
+            JPAController jpa = new JPAController();
+
+            //Obtener la lista de usuarios activos e inactivos
+            
+            List<Visita> visitaBusqueda = jpa.getVisitaPorAsunto(nombre);
+            
+
+            //Obtener el modelo de la tabla y limpiar las columnas
+            DefaultTableModel dtm = (DefaultTableModel)tabla.getModel();
+            dtm.setRowCount(0);
+
+            
+            for (Visita visita : visitaBusqueda) {
+            if(visita.getPacienteidPaciente().getEstatus()==0){
+                Object[] data = new Object[]{visita.getIdVisita(), visita.getAsunto(),visita.getPacienteidPaciente().getNombre(), visita.getFamiliar(), visita.getParentesco(),
+                Funciones.formatedFecha(visita.getFecha()), visita.getHora(), Funciones.estatusActividadToString(visita.getEstatus())};
+                dtm.addRow(data);
+            }
+        }
+
+            //Asignar el modelo a la tabla
+            tabla.setModel(dtm);
+        } catch (Exception e) {
+            System.out.println("error: " + e.getMessage());
+        }
     }
 }

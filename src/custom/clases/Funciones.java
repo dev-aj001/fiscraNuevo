@@ -96,6 +96,16 @@ public class Funciones {
         return nuevaFecha;
     }
     
+    public static Date fechaMenosDia(Date fecha){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        // Sumar un mes
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
+        // Obtener la nueva fecha después de sumar un mes
+        Date nuevaFecha = calendar.getTime();
+        return nuevaFecha;
+    }
+    
     public static Date fechaMenosMes(Date fecha){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(fecha);

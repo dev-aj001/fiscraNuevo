@@ -65,7 +65,7 @@ public class PanelCalendario extends javax.swing.JPanel {
         roundPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setText("Calendario de agendas");
+        jLabel3.setText("Calendario");
 
         jCalendar1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {

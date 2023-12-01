@@ -312,7 +312,8 @@ public class PanelVisitas extends javax.swing.JPanel {
     }//GEN-LAST:event_txtBuscarActionPerformed
 
     private void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyTyped
-        // TODO add your handling code here:
+        String nombre = txtBuscar.getText();
+        actualizarTablaBusqueda(nombre);
     }//GEN-LAST:event_txtBuscarKeyTyped
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
@@ -362,7 +363,6 @@ public class PanelVisitas extends javax.swing.JPanel {
     }
 
     public void actualizarTabla() {
-        System.out.println("hola");
         DefaultTableModel dtm = (DefaultTableModel)tabla.getModel();
         dtm.setRowCount(0);
         
@@ -380,5 +380,34 @@ public class PanelVisitas extends javax.swing.JPanel {
         
         jLabel1.setText("Total de visitas: " + tabla.getRowCount());
         
+    }
+
+    private void actualizarTablaBusqueda(String nombre) {
+        try {
+            JPAController jpa = new JPAController();
+
+            //Obtener la lista de usuarios activos e inactivos
+            
+            List<Visita> visitaBusqueda = jpa.getVisitaPorAsunto(nombre);
+            
+
+            //Obtener el modelo de la tabla y limpiar las columnas
+            DefaultTableModel dtm = (DefaultTableModel)tabla.getModel();
+            dtm.setRowCount(0);
+
+            
+            for (Visita visita : visitaBusqueda) {
+            if(visita.getPacienteidPaciente().getEstatus()==0){
+                Object[] data = new Object[]{visita.getIdVisita(), visita.getAsunto(),visita.getPacienteidPaciente().getNombre(), visita.getFamiliar(), visita.getParentesco(),
+                Funciones.formatedFecha(visita.getFecha()), visita.getHora(), Funciones.estatusActividadToString(visita.getEstatus())};
+                dtm.addRow(data);
+            }
+        }
+
+            //Asignar el modelo a la tabla
+            tabla.setModel(dtm);
+        } catch (Exception e) {
+            System.out.println("error: " + e.getMessage());
+        }
     }
 }

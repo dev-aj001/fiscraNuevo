@@ -259,7 +259,7 @@ public class Usuario implements Serializable {
     public Object[] toArray(){
         return new Object[] {getIdUsuario(), getNombre(), getApellidoPa() + " " + 
         getApellidoMa(), getCalle() + ", " + getColonia() + ", CP: " + getCp(), 
-        getCorreo(), getTelefono(), getSexo(), Funciones.rolToString(getRol()) 
+        getCorreo(), getTelefono(), Funciones.sexoToString(getSexo()), Funciones.rolToString(getRol()) 
         , getUsuario(), Funciones.estatusUsuarioToString(getEstatus())};
     }
 }

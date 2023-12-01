@@ -161,4 +161,19 @@ public class ActividadJpaController implements Serializable {
         }
     }
     
+    public List<Actividad> buscarActividadPorAsunto(String nombreCompleto) {
+        EntityManager em = getEntityManager();
+        try {
+            String jpql = "SELECT a FROM Actividad a " +
+                          "WHERE LOWER(CONCAT(a.nombre, ' ', a.descripcion)) LIKE LOWER(:nombreCompleto) ";
+
+            TypedQuery<Actividad> query = em.createQuery(jpql, Actividad.class);
+            query.setParameter("nombreCompleto", "%" + nombreCompleto + "%");
+
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
 }

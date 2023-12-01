@@ -302,7 +302,7 @@ public class GerenteMain extends javax.swing.JFrame {
 
     private void btnCalendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalendarioActionPerformed
         screenPnl.removeAll();
-        //screenPnl.add(Calendario.getInstance());
+        screenPnl.add(PanelCalendario.getInstance());
         screenPnl.revalidate();
         screenPnl.repaint();
     }//GEN-LAST:event_btnCalendarioActionPerformed

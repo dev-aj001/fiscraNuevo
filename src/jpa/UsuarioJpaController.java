@@ -175,4 +175,19 @@ public class UsuarioJpaController implements Serializable {
             em.close();
         }
     }
+    
+    public List<Usuario> buscarPacientesPorNombreCompleto(String nombreCompleto) {
+        EntityManager em = getEntityManager();
+        try {
+            String jpql = "SELECT u FROM Usuario u " +
+                          "WHERE LOWER(CONCAT(u.nombre, ' ', u.apellidoPa, ' ', u.apellidoMa)) LIKE LOWER(:nombreCompleto) ";
+
+            TypedQuery<Usuario> query = em.createQuery(jpql, Usuario.class);
+            query.setParameter("nombreCompleto", "%" + nombreCompleto + "%");
+
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
 }

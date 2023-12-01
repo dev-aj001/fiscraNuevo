@@ -3142,6 +3142,7 @@ public class PanelPacientes extends javax.swing.JPanel {
         txtLocalidadPaciente.setText(pacienteSeleccionado.getMunicipio());
         txtNumCasaPaciente.setText(pacienteSeleccionado.getTelefono());
         txtCorreoPaciente.setText(pacienteSeleccionado.getCorreo());
+        sexo.setSelectedIndex(pacienteSeleccionado.getSexo());
         
         //Familiar
         txtFamiliarApellido1.setText(familiar.getApellidoPa());

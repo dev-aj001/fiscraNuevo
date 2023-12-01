@@ -4,6 +4,7 @@
  */
 package interfaz.ventanasEmergentes;
 
+import custom.clases.Funciones;
 import interfaz.paneles.PanelActividades;
 import interfaz.paneles.PanelVisitas;
 import java.util.logging.Level;
@@ -169,10 +170,10 @@ public class EstatusVisita extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Date d = new Date();
-        d.setHours(0);
+        d = Funciones.fechaMenosDia(d);
         
         if(visita.getFecha().before(d) && (cmbEstatus.getSelectedIndex()==3 || cmbEstatus.getSelectedIndex()==4)){
-            JOptionPane.showMessageDialog(this, "La visita no se puede marcar como completada o\nimpleta hasta pasar el dia de la actividad");
+            JOptionPane.showMessageDialog(this, "La visita no se puede marcar como completada o\nincompleta hasta pasar el dia de la actividad");
         }else{
             visita.setEstatus(cmbEstatus.getSelectedIndex());
 

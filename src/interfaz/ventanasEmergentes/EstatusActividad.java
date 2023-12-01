@@ -4,6 +4,7 @@
  */
 package interfaz.ventanasEmergentes;
 
+import custom.clases.Funciones;
 import interfaz.paneles.PanelActividades;
 import java.util.logging.Level;
 import javax.swing.JOptionPane;
@@ -167,10 +168,12 @@ public class EstatusActividad extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Date d = new Date();
-        d.setHours(0);
+        d = Funciones.fechaMenosDia(d);
+        
+        System.out.println("Fecha: " + d + ", " + actividad.getFecha());
         
         if(actividad.getFecha().before(d) && (cmbEstatus.getSelectedIndex()==3 || cmbEstatus.getSelectedIndex()==4)){
-            JOptionPane.showMessageDialog(this, "La actividad no se puede marcar como completada o\nimpleta hasta pasar el dia de la actividad");
+            JOptionPane.showMessageDialog(this, "La actividad no se puede marcar como completada o\nincompleta hasta pasar el dia de la actividad");
         }else{
             actividad.setEstatus(cmbEstatus.getSelectedIndex());
         
@@ -204,7 +207,6 @@ public class EstatusActividad extends javax.swing.JFrame {
     private void llenarDatos() {
         txtTitulo.setText(actividad.getNombre());
         cmbEstatus.setSelectedIndex(actividad.getEstatus());
-        
     }
 
   

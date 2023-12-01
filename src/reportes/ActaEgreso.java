@@ -318,7 +318,7 @@ public class ActaEgreso extends javax.swing.JPanel implements Printable{
         txtFecha.setText(fecha);
         txtGerente.setText(gerente);
         
-        String objeto = "El presente acta tiene como objetivo oficializar el proceso de egreso del paciente "+getPaciente()+" en Centro de Rehabilitación Las Palmas A.C."; 
+        String objeto = "El presente acta tiene como objetivo oficializar el proceso de egreso del paciente "+getPaciente()+" en Centro de Rehabilitación Las Puertas A.C."; 
         String espacio = "\n\n\n";
         String egreso = "El paciente ha completado su correcta rehabilitación. Se informará al familiar sobre las responsabilidades y cuidados posteriores necesarios para mantener y mejorar el progreso alcanzado.";
     

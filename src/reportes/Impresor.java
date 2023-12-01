@@ -18,6 +18,7 @@ public class Impresor extends javax.swing.JFrame {
 
     private  ActaIngreso panel;
     private  ActaEgreso panelE;
+    boolean i = false;
 
     /**
      * Creates new form Impresor
@@ -28,6 +29,7 @@ public class Impresor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(this.panel);
         revalidate();
         repaint();
+        i = true;
     }
     
     public Impresor(ActaEgreso panelE) {
@@ -36,6 +38,7 @@ public class Impresor extends javax.swing.JFrame {
         jScrollPane1.setViewportView(this.panelE);
         revalidate();
         repaint();
+        
     }
 
     /**
@@ -89,7 +92,10 @@ public class Impresor extends javax.swing.JFrame {
         // Imprimir
         PrinterJob job = PrinterJob.getPrinterJob();
         
-        job.setPrintable(panel);
+        if(i)
+            job.setPrintable(panel);
+        else
+            job.setPrintable(panelE);
         
         if(job.printDialog()){
             try {
@@ -97,7 +103,7 @@ public class Impresor extends javax.swing.JFrame {
             } catch (PrinterException ex) {
             }
         }else{
-            JOptionPane.showMessageDialog(null, "no se imprimio el ticket");
+            JOptionPane.showMessageDialog(null, "no se imprimio");
         }
         
     }//GEN-LAST:event_btnImprimirActionPerformed
